@@ -1,6 +1,5 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql import func
 
 from database import Base
 
@@ -16,5 +15,5 @@ class Movimentacoes(Base):
     tipo = Column(String(20), nullable=False)
     quantidade = Column(Float, nullable=False)
 
-    produto = relationship("Produto", back_populates="movimentacoes")
-    usuarios = relationship("Usuario", back_populates="movimentacoes")
+    produto = relationship("Product", back_populates="movimentacoes")
+    usuario = relationship("Usuario", back_populates="movimentacoes")
